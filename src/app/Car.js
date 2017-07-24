@@ -13,7 +13,8 @@ class Car extends Component {
         left: this.random(this.props.bounds.width)
       },
       tick: 0,
-      targetTick: 0
+      targetTick: 0,
+      speed: Math.floor(Math.random() * config.UNIT)
     }
   }
 
@@ -28,11 +29,13 @@ class Car extends Component {
   }
 
   random(bound) {
-    return Math.floor((Math.random() * bound) / config.UNIT) * config.UNIT
+    return Math.floor(
+      (Math.random() * bound) / config.UNIT
+    ) * config.UNIT
   }
 
   ticks(length) {
-    return Math.floor(Math.abs(length) / config.UNIT)
+    return Math.floor(Math.abs(length) / this.state.speed)
   }
 
   changeLocation() {
@@ -45,7 +48,7 @@ class Car extends Component {
       newStyle.left = this.random(this.props.bounds.width)
       ticks = this.ticks(this.state.style.left - newStyle.left)
     }
-    newStyle.transitionDuration = `${ticks}s`
+    newStyle.transitionDuration = `${ticks * config.TICK / 1000}s`
     this.setState((state) => ({
       style: newStyle, targetTick: state.tick + ticks
     }))

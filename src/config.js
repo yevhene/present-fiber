@@ -3,9 +3,9 @@ const config = {
     width: 800,
     height: 600
   },
-  UNIT: 50, // px
+  UNIT: 100, // px
   TICK: 1000, // One tick in ms
-  CARS: 10
+  CARS: 20
 }
 
 export default config
