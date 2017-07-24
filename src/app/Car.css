@@ -7,3 +7,10 @@
   transition-property: top, left;
   transition-timing-function: linear;
 }
+
+.Car-text {
+  width: 100%;
+  height: 100%;
+  line-height: 20px;
+  color: white;
+}

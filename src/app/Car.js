@@ -14,7 +14,7 @@ class Car extends Component {
       },
       tick: 0,
       targetTick: 0,
-      speed: Math.floor(Math.random() * config.UNIT)
+      speed: this.randomSpeed()
     }
   }
 
@@ -38,6 +38,10 @@ class Car extends Component {
     return Math.floor(Math.abs(length) / this.state.speed)
   }
 
+  randomSpeed() {
+    return Math.floor(config.UNIT / Math.floor(Math.random() * 5))
+  }
+
   changeLocation() {
     const newStyle = {...this.state.style}
     let ticks = 0
@@ -50,13 +54,19 @@ class Car extends Component {
     }
     newStyle.transitionDuration = `${ticks * config.TICK / 1000}s`
     this.setState((state) => ({
-      style: newStyle, targetTick: state.tick + ticks
+      style: newStyle,
+      targetTick: state.tick + ticks,
+      speed: this.randomSpeed()
     }))
   }
 
   render() {
     return (
-      <div className="Car" style={this.state.style} />
+      <div className="Car" style={this.state.style}>
+        <div className="Car-text">
+          {this.state.targetTick - this.state.tick}
+        </div>
+      </div>
     )
   }
 }

@@ -5,7 +5,7 @@ const config = {
   },
   UNIT: 100, // px
   TICK: 1000, // One tick in ms
-  CARS: 20
+  CARS: 100
 }
 
 export default config
