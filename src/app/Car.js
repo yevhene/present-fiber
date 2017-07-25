@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+/*eslint no-undef: "off"*/
+/*eslint react/react-in-jsx-scope: "off"*/
+
 import './Car.css'
 
 import config from '../config'
 
-class Car extends Component {
+class Car extends React.Component {
   constructor(props) {
     super(props)
 
@@ -35,11 +37,11 @@ class Car extends Component {
   }
 
   ticks(length) {
-    return Math.floor(Math.abs(length) / this.state.speed)
+    return Math.ceil(Math.abs(length) / this.state.speed)
   }
 
   randomSpeed() {
-    return Math.floor(config.UNIT / Math.floor(Math.random() * 5))
+    return Math.floor(config.UNIT * (Math.round(Math.random() + 0.5) + 1) * 2)
   }
 
   changeLocation() {

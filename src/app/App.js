@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+/*eslint no-undef: "off"*/
+/*eslint react/react-in-jsx-scope: "off"*/
 
 import Map from './Map'
 
@@ -6,7 +7,7 @@ import './App.css'
 
 import config from '../config'
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
 
