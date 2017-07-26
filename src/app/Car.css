@@ -6,6 +6,7 @@
   background-color: red;
   transition-property: top, left;
   transition-timing-function: linear;
+  transition-duration: 10s;
 }
 
 .Car-text {

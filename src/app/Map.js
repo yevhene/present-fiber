@@ -1,4 +1,5 @@
-import React from 'react'
+/*eslint no-undef: "off"*/
+/*eslint react/react-in-jsx-scope: "off"*/
 
 import Car from './Car'
 
