@@ -35,11 +35,11 @@ class Car extends Component {
   }
 
   ticks(length) {
-    return Math.floor(Math.abs(length) / this.state.speed)
+    return Math.ceil(Math.abs(length) / this.state.speed)
   }
 
   randomSpeed() {
-    return Math.floor(config.UNIT / Math.floor(Math.random() * 5))
+    return Math.floor(config.UNIT * (Math.round(Math.random() + 0.5) + 1) * 2)
   }
 
   changeLocation() {
@@ -61,6 +61,11 @@ class Car extends Component {
   }
 
   render() {
+    var e = performance.now() + 0.8;
+    while (performance.now() < e) {
+      // Artificially long execution time.
+    }
+
     return (
       <div className="Car" style={this.state.style}>
         <div className="Car-text">
