@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOMFiber from 'react-dom'
 import './Car.css'
 
 import config from '../config'
@@ -19,13 +20,15 @@ class Car extends Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState(() => ({
-      tick: props.tick
-    }), () => {
-      if (this.state.tick >= this.state.targetTick) {
-        this.changeLocation()
-      }
-    })
+    ReactDOMFiber.unstable_deferredUpdates(() =>
+      this.setState(() => ({
+        tick: props.tick
+      }), () => {
+        if (this.state.tick >= this.state.targetTick) {
+          this.changeLocation()
+        }
+      })
+    )
   }
 
   random(bound) {
