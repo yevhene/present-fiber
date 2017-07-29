@@ -8,10 +8,10 @@ import './Map.css'
 
 import config from '../config'
 
-const Map = ({ tick }) => (
+const Map = ({ time }) => (
   <div className="Map" style={config.BOUNDS}>
     {nmap(config.CARS, (_, i) => (
-      <Car bounds={config.BOUNDS} key={i} tick={tick} />
+      <Car bounds={config.BOUNDS} key={i} time={time} />
     ))}
   </div>
 )
