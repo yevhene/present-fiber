@@ -1,70 +1,44 @@
 import React, { Component } from 'react'
 import './Car.css'
 
+import Path from './model/Path'
+
 import config from '../config'
 
 class Car extends Component {
   constructor(props) {
     super(props)
 
+    const path = new Path()
+
     this.state = {
-      style: {
-        top: this.random(this.props.bounds.height),
-        left: this.random(this.props.bounds.width)
-      },
-      tick: 0,
-      targetTick: 0,
+      time: 0,
+      location: path.location(),
+      path: path,
       speed: this.randomSpeed()
     }
   }
 
   componentWillReceiveProps(props) {
     this.setState(() => ({
-      tick: props.tick
-    }), () => {
-      if (this.state.tick >= this.state.targetTick) {
-        this.changeLocation()
-      }
-    })
-  }
-
-  random(bound) {
-    return Math.floor(
-      (Math.random() * bound) / config.UNIT
-    ) * config.UNIT
-  }
-
-  ticks(length) {
-    return Math.floor(Math.abs(length) / this.state.speed)
+      time: props.time,
+      location: this.state.path.location(this.distance(props.time))
+    }))
   }
 
   randomSpeed() {
-    return Math.floor(config.UNIT / Math.floor(Math.random() * 5))
+    return Math.ceil(config.SPEED_UNIT * (Math.random() + 0.5))
   }
 
-  changeLocation() {
-    const newStyle = {...this.state.style}
-    let ticks = 0
-    if (Math.random() > 0.5) {
-      newStyle.top = this.random(this.props.bounds.height)
-      ticks = this.ticks(this.state.style.top - newStyle.top)
-    } else {
-      newStyle.left = this.random(this.props.bounds.width)
-      ticks = this.ticks(this.state.style.left - newStyle.left)
-    }
-    newStyle.transitionDuration = `${ticks * config.TICK / 1000}s`
-    this.setState((state) => ({
-      style: newStyle,
-      targetTick: state.tick + ticks,
-      speed: this.randomSpeed()
-    }))
+  distance(time) {
+    return Math.ceil(this.state.speed * (time / 1000))
   }
 
   render() {
     return (
-      <div className="Car" style={this.state.style}>
+      <div className="Car" style={this.state.location}>
         <div className="Car-text">
-          {this.state.targetTick - this.state.tick}
+          {this.props.children}
         </div>
       </div>
     )
