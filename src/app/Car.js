@@ -38,7 +38,7 @@ class Car extends Component {
     return (
       <div className="Car" style={this.state.location}>
         <div className="Car-text">
-          {Math.ceil(this.state.time / 1000) % 10}
+          {this.props.children}
         </div>
       </div>
     )

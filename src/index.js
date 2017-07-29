@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-//import ReactDOMFiber from 'react-dom'
+import ReactDOMFiber from 'react-dom'
 import './index.css'
 import Map from './app/Map'
 import registerServiceWorker from './registerServiceWorker'
