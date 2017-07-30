@@ -1,11 +1,14 @@
 const config = {
   BOUNDS: {
-    width: 800,
-    height: 600
+    width: 1024,
+    height: 768
   },
-  UNIT: 100, // px
+  UNIT: 50, // px
   TICK: 1000, // One tick in ms
-  CARS: 100
+  SPEED_K: 10,
+  SPEED_B: 10,
+  CARS: 200,
+  FIBER: true
 }
 
 export default config
