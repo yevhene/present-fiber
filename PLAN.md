@@ -1,0 +1,24 @@
+# Fiber
+
+- Default demo
+  - Stack
+  - Fiber
+- Fiber explanation
+- Fiber advantages
+  - Fragment (Array and Strings)
+  - Error boundaries
+  - Portals
+  - Async rendering (deferredUpdates)
+- Beyond
+  - Offscreen/Hidden Prioritization
+  - Better Code Splitting
+    - Commit phase
+    - Pre-render content without update the DOM
+- ReactDOMFiber.unstable_deferredUpdates
+- Default demo highlights
+  - Delay
+  - deferredUpdates
+  - Redraw and shouldComponentUpdate
+- My demo
+  - Problems
+  - Outcome
