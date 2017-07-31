@@ -7,8 +7,7 @@ const config = {
   TICK: 1000, // One tick in ms
   SPEED_K: 10,
   SPEED_B: 10,
-  CARS: 200,
-  FIBER: true
+  CARS: 200
 }
 
 export default config
