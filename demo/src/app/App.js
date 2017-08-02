@@ -13,7 +13,7 @@ class App extends Component {
 
     this.state = {
       tick: 0,
-      fiberEnabled: false
+      isFiberEnabled: false
     }
   }
 
@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   handleTick = () => {
-    if (this.state.fiberEnabled) {
+    if (this.state.isFiberEnabled) {
       ReactDOM.unstable_deferredUpdates(this.tick)
     } else {
       this.tick()
@@ -33,8 +33,16 @@ class App extends Component {
 
   toggleFiber = () => {
     this.setState((prevState) => ({
-      fiberEnabled: !prevState.fiberEnabled
+      isFiberEnabled: !prevState.isFiberEnabled
     }))
+  }
+
+  title() {
+    if (this.state.isFiberEnabled) {
+      return 'Fiber'
+    } else {
+      return 'Not Fiber'
+    }
   }
 
   componentDidMount() {
@@ -51,10 +59,10 @@ class App extends Component {
         <label className="App-toggle">
           <input
             type="checkbox"
-            value={this.state.fiberEnabled}
+            value={this.state.isFiberEnabled}
             onChange={this.toggleFiber}
           />
-          Fiber
+          {this.title()}
         </label>
         <hr />
         <Map tick={this.state.tick} />

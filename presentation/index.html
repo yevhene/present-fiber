@@ -32,6 +32,130 @@
             github: <a href="http://github.com/yevhene/present-fiber">yevhene</a>
           </small>
         </section>
+
+        <section>
+          <h2>Not Fiber</h2>
+
+          <section>
+            <h1>DEMO</h1>
+          </section>
+
+          <section>
+            <h2>Problem?</h2>
+            <h3 class="fragment">One thread</h3>
+          </section>
+
+          <section>
+            <h2>Solution?</h2>
+            <h3 class="fragment">Cooperative scheduling</h3>
+          </section>
+        </section>
+
+        <section>
+          <h2>React rendering</h2>
+
+          <section>
+            <h3>Vitrual DOM</h3>
+          </section>
+
+          <section>
+            <h3>Reconciliation</h3>
+          </section>
+        </section>
+
+        <section>
+          <h2>Fiber</h2>
+
+          <section>
+            <h1>DEMO</h1>
+          </section>
+
+          <section>
+            <h3>New Reconciliation Algorithm</h3>
+
+            <p><span class="fragment">unstable_</span>deferredUpdates</p>
+          </section>
+
+          <section>
+            <h3>Deferred Updates Mode</h3>
+            <pre><code class="hljs">
+  tick() {
+    ReactDOM.unstable_deferredUpdates(() => (
+      this.setState((prevState) => ({
+        tick: prevState.tick + 1
+      }))
+    ))
+  }
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h2>Fiber Explained</h2>
+
+          <section>
+            TODO
+            - Phases
+            - Fiber object { stateNode, child, return. sibling }
+            - current/workInProgress tree
+            - requestIdleCallback (browser support)
+            - effect list
+            - pendingCommit
+            - tree reusing (doubleBuffering two buffers)
+          </section>
+        </section>
+
+        <section>
+          <h2>Starvation</h2>
+
+          <h1>DEMO</h1>
+        </section>
+
+        <section>
+          <h2>Compatibility</h2>
+
+          <p>
+            TODO
+            - Callbacks
+
+            - render/reconciliation phase 1, interruptibe, multicallbacks
+              - componentWillMount
+              - componentWillReceiveProps
+              - shouldComponentUpdate
+              - componentWillUpdate
+            - commit 2 phase, ininterruptible
+              - componentDidMount
+              - componentDidUpdate
+              - componentWillUnmount
+          </p>
+        </section>
+
+        <section>
+          <h2>Other Features</h2>
+
+          <p>
+            TODO
+            - Fragment (Array and Strings)
+            - Error boundaries
+            - Portals
+          </p>
+        </section>
+
+        <section>
+          <h2>Further</h2>
+
+          <p>
+            TODO
+            - Offscreen/Hidden Prioritization
+            - Better Code Splitting
+              - Commit phase
+              - Pre-render content without update the DOM
+          </p>
+        </section>
+
+        <section>
+          <h1>Thank You</h2>
+        </section>
       </div>
     </div>
 
