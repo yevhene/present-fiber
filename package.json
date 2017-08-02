@@ -1,0 +1,15 @@
+{
+  "name": "present-fiber",
+  "version": "1.0.0",
+  "description": "React Fiber Presentation",
+  "homepage": "https://github.com/yevhene/present-fiber",
+  "author": {
+    "name": "Yevhen Shemet",
+    "email": "yevhene@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yevhene/present-fiber.git"
+  },
+  "license": "MIT"
+}
