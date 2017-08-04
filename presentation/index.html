@@ -72,20 +72,18 @@
 
           <section>
             <h3>New Reconciliation Algorithm</h3>
-
-            <p><span class="fragment">unstable_</span>deferredUpdates</p>
           </section>
 
           <section>
             <h3>Deferred Updates Mode</h3>
-            <pre><code class="hljs">
-  tick() {
-    ReactDOM.unstable_deferredUpdates(() => (
-      this.setState((prevState) => ({
-        tick: prevState.tick + 1
-      }))
-    ))
-  }
+            <pre><code class="hljs" data-trim>
+tick() {
+  ReactDOM.unstable_deferredUpdates(() => (
+    this.setState((prevState) => ({
+      tick: prevState.tick + 1
+    }))
+  ))
+}
             </code></pre>
           </section>
 
@@ -113,6 +111,16 @@
           </section>
 
           <section>
+            <h3>Idle Callback</h3>
+
+            <pre><code class="hljs" data-trim>
+window.requestIdleCallback(callback[, options])
+            </code></pre>
+
+            <small>*Polyfilled if no browser support</small>
+          </section>
+
+          <section>
             TODO
             - Fiber object { stateNode, child, return. sibling }
             - current/workInProgress tree
@@ -135,20 +143,56 @@
           <section>
             <h3>Fragment (Array and Strings)</h3>
 
-            <p>TODO</p>
+            <pre><code class="hljs" data-trim>
+const Cars = () => {
+  return [
+    &lt;Car /&gt;, &lt;Car /&gt;, &lt;Car /&gt;
+  ]
+}
+            </code></pre>
           </section>
 
           <section>
             <h3>Error boundaries</h3>
 
-            <p>TODO</p>
+            <pre><code class="hljs" data-trim>
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  componentDidCatch(error, info) {
+    this.setState(() => { hasError: true })
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>
+    }
+    return this.props.children;
+  }
+}
+            </code></pre>
           </section>
 
           <section>
             <h3>Portals</h3>
 
-            <p>TODO</p>
+            <pre><code class="hljs" data-trim>
+render() {
+  return ReactDOM.unstable_createPortal(&lt;Modal /&gt;, domElement)
+}
+            </code></pre>
           </section>
+        </section>
+
+        <section>
+          <h2>When?</h2>
+
+          <img src="../img/isfiberreadyyet.png" />
+
+          <a href="http://isfiberreadyyet.com/">isfiberreadyyet.com</a>
         </section>
 
         <section>
@@ -157,9 +201,9 @@
           <section>
             <h3>Callbacks</h3>
 
-            <ol>
+            <ul>
               <li>
-                <h4>phase 1: render/reconciliation</h4>
+                <strong>phase 1: render/reconciliation (multi)</strong>
                 <ul>
                   <li>componentWillMount</li>
                   <li>componentWillReceiveProps</li>
@@ -168,20 +212,20 @@
                 </ul>
               </li>
               <li>
-                <h4>phase 2: commit</h4>
+                <strong>phase 2: commit</strong>
                 <ul>
                   <li>componentDidMount</li>
                   <li>componentDidUpdate</li>
                   <li>componentWillUnmount</li>
                 </ul>
               </li>
-            </ol>
+            </ul>
           </section>
 
           <section>
             <h3>Errors</h3>
 
-            <p>TODO</p>
+            <p><b>As of React 16, errors that were not caught by any error boundary will result in unmounting of the whole React component tree.</b></p>
           </section>
         </section>
 
@@ -223,7 +267,7 @@
         </section>
 
         <section>
-          <h1>Thank You</h1>
+          <h1>Thank You!</h1>
         </section>
       </div>
     </div>
