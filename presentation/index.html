@@ -12,6 +12,8 @@
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <link rel="stylesheet" href="css/overrides.css">
+
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
@@ -37,7 +39,7 @@
           <h2>Not Fiber</h2>
 
           <section>
-            <h1>DEMO</h1>
+            <h1>DEMO: Stack</h1>
           </section>
 
           <section>
@@ -59,16 +61,14 @@
           </section>
 
           <section>
-            <h3>Reconciliation (Stack)</h3>
+            <h3>Reconciliation</h3>
+
+            <small>Stack algorithm - Depth-first, non-interruptible</small>
           </section>
         </section>
 
         <section>
           <h2>Fiber</h2>
-
-          <section>
-            <h1>DEMO</h1>
-          </section>
 
           <section>
             <h3>New Reconciliation Algorithm</h3>
@@ -85,6 +85,12 @@ tick() {
   ))
 }
             </code></pre>
+
+            <small>Aware of multiple calls</small>
+          </section>
+
+          <section>
+            <h1>DEMO: Fiber</h1>
           </section>
 
           <section>
@@ -106,12 +112,16 @@ tick() {
 
             <ol>
               <li><b>reconciliation/render phase</b> - interruptible, cancellable, repeatable</li>
-              <li><b>commit phase</b> - is not</li>
+              <li><b>commit phase</b> - solid</li>
             </ol>
           </section>
 
           <section>
-            <h3>Idle Callback</h3>
+            <h3>Reconciliation</h3>
+          </section>
+
+          <section>
+            <h3>Work broken up into chunks</h3>
 
             <pre><code class="hljs" data-trim>
 window.requestIdleCallback(callback[, options])
@@ -125,42 +135,45 @@ window.requestIdleCallback(callback[, options])
 
             <pre><code class="hljs" data-trim>
 {
-  stateNode,
-  child,
-  return,
+  stateNode
+  child
+  return
   sibling
 }
             </code></pre>
           </section>
 
           <section>
-            <h3>Current Tree</h3>
+            <img src="../img/fiber-0.svg" />
 
-            <p>TODO: Slide 0</p>
+            <small>current tree</small>
           </section>
 
           <section>
-            <h3>Work In Progress Tree</h3>
+            <img src="../img/fiber-1.svg" />
 
-            <p>TODO: Slide 1</p>
+            <small>workInProgress tree</small>
           </section>
 
           <section>
-            <h3>Determining which nodes need update</h3>
+            <img src="../img/fiber-2.svg" />
 
-            <p>TODO: Slide 2</p>
+            <small>determining which nodes to upgrade</small>
           </section>
 
           <section>
-            <h3>Cloning DOM nodes</h3>
+            <img src="../img/fiber-3.svg" />
 
-            <p>TODO: Slide 3</p>
+            <small>cloning DOM nodes</small>
           </section>
 
           <section>
-            <h3>Effects list</h3>
+            <h3>Effects List</h3>
 
-            <p>TODO: Slide 5</p>
+            <p>
+              <img src="../img/fiber-4.svg" />
+            </p>
+
             <small>Pending Commit</small>
           </section>
 
@@ -169,17 +182,29 @@ window.requestIdleCallback(callback[, options])
           </section>
 
           <section>
-            <h3>Effects list</h3>
+            <img src="../img/fiber-5.svg" />
 
-            <p>TODO: Slide 5</p>
-            <small>Pending Commit</small>
+            <small>double buffering</small>
           </section>
         </section>
 
         <section>
-          <h2>Starvation</h2>
+          <h2>Prioritization</h2>
 
-          <h1>DEMO</h1>
+          <section>
+            <ul>
+              <li>Synchronous (current)</li>
+              <li>Task (before next tick)</li>
+              <li>Animation (before next frame)</li>
+              <li>High</li>
+              <li>Low</li>
+              <li>Offscreen/Hidden</li>
+            </ul>
+          </section>
+
+          <section>
+            <h1>DEMO: Starvation</h1>
+          </section>
         </section>
 
         <section>
@@ -218,6 +243,16 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Error boundaries 2</h3>
+
+            <pre><code class="hljs" data-trim>
+&lt;ErrorBoundary&gt;
+  &lt;Map /&gt;
+&lt;/ErrorBoundary&gt;
             </code></pre>
           </section>
 
@@ -278,16 +313,9 @@ render() {
           <h2>Further</h2>
 
           <section>
-            <h3>Prioritization</h3>
+            <h3>Prioritization Utilization</h3>
 
-            <ul>
-              <li>Synchronous (current)</li>
-              <li>Task (before next tick)</li>
-              <li>Animation (before next frame)</li>
-              <li>High</li>
-              <li>Low</li>
-              <li>Offscreen/Hidden</li>
-            </ul>
+            <small>Offscreen/Hidden</small>
           </section>
 
           <section>
@@ -299,6 +327,7 @@ render() {
               <li>Console (react-blessed)</li>
               <li>VR (aframe-react)</li>
               <li>Arduino (react-hardware)</li>
+              <li>...</li>
             </ul>
           </section>
 
@@ -306,7 +335,7 @@ render() {
             <h3>Code splitting</h3>
 
             <ul>
-              <li>Streaming rendering</li>
+              <li>Stream rendering</li>
               <li>Pre-rendering content without update the DOM</li>
             </ul>
           </section>

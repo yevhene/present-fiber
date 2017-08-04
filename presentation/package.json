@@ -1,6 +1,5 @@
 {
   "name": "present-fiber-presentation",
-  "homepage": "https://present-fiber.herokuapp.com",
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",

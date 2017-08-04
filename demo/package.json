@@ -1,6 +1,5 @@
 {
   "name": "present-fiber-demo",
-  "homepage": "https://present-fiber-demo.herokuapp.com",
   "dependencies": {
     "react": "^16.0.0-beta.2",
     "react-dom": "^16.0.0-beta.2",

@@ -41,7 +41,7 @@ class App extends Component {
     if (this.state.isFiberEnabled) {
       return 'Fiber'
     } else {
-      return 'Not Fiber'
+      return 'Stack'
     }
   }
 
