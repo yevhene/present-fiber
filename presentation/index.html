@@ -59,7 +59,7 @@
           </section>
 
           <section>
-            <h3>Reconciliation</h3>
+            <h3>Reconciliation (Stack)</h3>
           </section>
         </section>
 
@@ -88,14 +88,32 @@
   }
             </code></pre>
           </section>
+
+          <section>
+            <h3>Compare</h3>
+
+            <img src="../img/perf-not-fiber.png" />
+            <small>Not fiber</small>
+
+            <img src="../img/perf-fiber.png" />
+            <small>Fiber</small>
+          </section>
         </section>
 
         <section>
           <h2>Fiber Explained</h2>
 
           <section>
+            <h3>Phases</h3>
+
+            <ol>
+              <li><b>reconciliation/render phase</b> - interruptible, cancellable, repeatable</li>
+              <li><b>commit phase</b> - is not</li>
+            </ol>
+          </section>
+
+          <section>
             TODO
-            - Phases
             - Fiber object { stateNode, child, return. sibling }
             - current/workInProgress tree
             - requestIdleCallback (browser support)
@@ -112,49 +130,100 @@
         </section>
 
         <section>
-          <h2>Compatibility</h2>
+          <h2>Other Features</h2>
 
-          <p>
-            TODO
-            - Callbacks
+          <section>
+            <h3>Fragment (Array and Strings)</h3>
 
-            - render/reconciliation phase 1, interruptibe, multicallbacks
-              - componentWillMount
-              - componentWillReceiveProps
-              - shouldComponentUpdate
-              - componentWillUpdate
-            - commit 2 phase, ininterruptible
-              - componentDidMount
-              - componentDidUpdate
-              - componentWillUnmount
-          </p>
+            <p>TODO</p>
+          </section>
+
+          <section>
+            <h3>Error boundaries</h3>
+
+            <p>TODO</p>
+          </section>
+
+          <section>
+            <h3>Portals</h3>
+
+            <p>TODO</p>
+          </section>
         </section>
 
         <section>
-          <h2>Other Features</h2>
+          <h2>Migration</h2>
 
-          <p>
-            TODO
-            - Fragment (Array and Strings)
-            - Error boundaries
-            - Portals
-          </p>
+          <section>
+            <h3>Callbacks</h3>
+
+            <ol>
+              <li>
+                <h4>phase 1: render/reconciliation</h4>
+                <ul>
+                  <li>componentWillMount</li>
+                  <li>componentWillReceiveProps</li>
+                  <li>shouldComponentUpdate</li>
+                  <li>componentWillUpdate</li>
+                </ul>
+              </li>
+              <li>
+                <h4>phase 2: commit</h4>
+                <ul>
+                  <li>componentDidMount</li>
+                  <li>componentDidUpdate</li>
+                  <li>componentWillUnmount</li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Errors</h3>
+
+            <p>TODO</p>
+          </section>
         </section>
 
         <section>
           <h2>Further</h2>
 
-          <p>
-            TODO
-            - Offscreen/Hidden Prioritization
-            - Better Code Splitting
-              - Commit phase
-              - Pre-render content without update the DOM
-          </p>
+          <section>
+            <h3>Prioritization</h3>
+
+            <ul>
+              <li>Synchronous (current)</li>
+              <li>Task (before next tick)</li>
+              <li>Animation (before next frame)</li>
+              <li>High</li>
+              <li>Low</li>
+              <li>Offscreen/Hidden</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Code splitting</h3>
+
+            <ul>
+              <li>Streaming rendering</li>
+              <li>Pre-rendering content without update the DOM</li>
+            </ul>
+          </section>
         </section>
 
         <section>
-          <h1>Thank You</h2>
+          <h2>Deeper</h2>
+
+          <section>
+            <ul>
+              <li><a href="https://www.youtube.com/watch?v=ZCuYPiUIONs">Lin Clark - A Cartoon Intro to Fiber - React Conf 2017</a></li>
+              <li><a href="https://www.youtube.com/watch?v=QW5TE4vrklU">Keynote - Andrew Clark aka @acdlite at @ReactEurope 2017</a></li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h1>Thank You</h1>
         </section>
       </div>
     </div>
