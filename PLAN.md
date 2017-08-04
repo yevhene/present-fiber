@@ -61,3 +61,12 @@
     - low // minor delays ok
     - offscreen // prep for display/scroll
   - starvation
+
+- React
+  - DOM (React DOM)
+  - Mobile (react-native)
+  - Console (react-blessed)
+  - VR (aframe-react)
+  - Arduino (react-hardware)
+
+Manages work for instance

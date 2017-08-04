@@ -121,13 +121,58 @@ window.requestIdleCallback(callback[, options])
           </section>
 
           <section>
-            TODO
-            - Fiber object { stateNode, child, return. sibling }
-            - current/workInProgress tree
-            - requestIdleCallback (browser support)
-            - effect list
-            - pendingCommit
-            - tree reusing (doubleBuffering two buffers)
+            <h3>Fiber Object</h3>
+
+            <pre><code class="hljs" data-trim>
+{
+  stateNode,
+  child,
+  return,
+  sibling
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Current Tree</h3>
+
+            <p>TODO: Slide 0</p>
+          </section>
+
+          <section>
+            <h3>Work In Progress Tree</h3>
+
+            <p>TODO: Slide 1</p>
+          </section>
+
+          <section>
+            <h3>Determining which nodes need update</h3>
+
+            <p>TODO: Slide 2</p>
+          </section>
+
+          <section>
+            <h3>Cloning DOM nodes</h3>
+
+            <p>TODO: Slide 3</p>
+          </section>
+
+          <section>
+            <h3>Effects list</h3>
+
+            <p>TODO: Slide 5</p>
+            <small>Pending Commit</small>
+          </section>
+
+          <section>
+            <h3>Commit</h3>
+          </section>
+
+          <section>
+            <h3>Effects list</h3>
+
+            <p>TODO: Slide 5</p>
+            <small>Pending Commit</small>
           </section>
         </section>
 
@@ -246,6 +291,18 @@ render() {
           </section>
 
           <section>
+            <h3>Environment agnostic</h3>
+
+            <ul>
+              <li>DOM (React DOM)</li>
+              <li>Mobile (react-native)</li>
+              <li>Console (react-blessed)</li>
+              <li>VR (aframe-react)</li>
+              <li>Arduino (react-hardware)</li>
+            </ul>
+          </section>
+
+          <section>
             <h3>Code splitting</h3>
 
             <ul>
@@ -262,6 +319,7 @@ render() {
             <ul>
               <li><a href="https://www.youtube.com/watch?v=ZCuYPiUIONs">Lin Clark - A Cartoon Intro to Fiber - React Conf 2017</a></li>
               <li><a href="https://www.youtube.com/watch?v=QW5TE4vrklU">Keynote - Andrew Clark aka @acdlite at @ReactEurope 2017</a></li>
+              <li><a href="https://www.youtube.com/watch?v=U9zFfIww3Go">A tiny Fiber renderer- Dustan Kasten, React London 2017</a></li>
             </ul>
           </section>
         </section>
