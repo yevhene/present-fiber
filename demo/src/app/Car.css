@@ -3,7 +3,7 @@
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  background-color: red;
+  background-color: #f7b731;
   transition-property: top, left;
   transition-timing-function: linear;
 }
@@ -12,5 +12,5 @@
   width: 100%;
   height: 100%;
   line-height: 20px;
-  color: white;
+  color: bleak;
 }
